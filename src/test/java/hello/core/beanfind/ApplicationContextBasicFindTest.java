@@ -19,14 +19,14 @@ class ApplicationContextBasicFindTest {
     @DisplayName("빈 이름으로 조회")
     void findBeanByName(){
         MemberService memberService = ac.getBean("memberService", MemberService.class);
-        assertThat(memberService).isInstanceOf(MemberServiceImpl.class); //MemberService가 memberServiceImpl의 객체인가
+        assertThat(memberService).isInstanceOf(MemberServiceImpl.class); //memberService가 MemberServiceImpl타입인가?(AppConfig 참고)
     }
 
     @Test
     @DisplayName("이름 없이 타입으로만 조회") // 같은 타입이 여러 개일 경우 곤란
     void findBeanByType(){
         MemberService memberService = ac.getBean(MemberService.class);
-        assertThat(memberService).isInstanceOf(MemberServiceImpl.class); //MemberService가 memberServiceImpl의 객체인가
+        assertThat(memberService).isInstanceOf(MemberServiceImpl.class); //memberService가 MemberServiceImpl타입으로 받을 수 있나
     }
 
     @Test
@@ -34,7 +34,7 @@ class ApplicationContextBasicFindTest {
     void findBeanByName2(){
         MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class);
         //인스턴스 타입을 보고 결정하기 때문에 구체 타입으로 작성해도 됨
-        assertThat(memberService).isInstanceOf(MemberServiceImpl.class); //MemberService가 memberServiceImpl의 객체인가
+        assertThat(memberService).isInstanceOf(MemberServiceImpl.class); //memberService가 MemberServiceImpl타입으로 받을 수 있나
     }
 
     @Test
