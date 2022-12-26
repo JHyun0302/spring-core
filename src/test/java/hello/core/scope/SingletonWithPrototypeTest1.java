@@ -20,11 +20,11 @@ public class SingletonWithPrototypeTest1 {
     void prototypeFind() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
         PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
-        prototypeBean1.getCount();
+        prototypeBean1.addCount();
         assertThat(prototypeBean1.getCount()).isEqualTo(1);
 
         PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
-        prototypeBean2.getCount();
+        prototypeBean2.addCount();
         assertThat(prototypeBean2.getCount()).isEqualTo(1);
 
     }
