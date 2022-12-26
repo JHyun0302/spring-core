@@ -54,6 +54,7 @@ public class AppConfig { //Config: 설정 정보
     public OrderService orderService(){ //인터페이스: 역할
         System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return null;
     }
     @Bean
     public DiscountPolicy discountPolicy(){ //구현체: 구현
