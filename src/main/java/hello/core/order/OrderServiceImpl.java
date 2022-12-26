@@ -44,7 +44,7 @@ public class OrderServiceImpl implements OrderService{
      * 2. @Qualifier 사용해서 지정
      * 3. @Primary 사용
      */
-    //public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) { //DiscountPolicy rateDiscountPolicy
+//    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) { //DiscountPolicy rateDiscountPolicy
     public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         //System.out.println("1.OrderServiceImpl.OrderServiceImpl");
         this.memberRepository = memberRepository;
