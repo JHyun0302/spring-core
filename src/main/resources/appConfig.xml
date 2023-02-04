@@ -3,12 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<!--    constructor-arg: 구현체 주입-->
     <bean id="memberService" class="hello.core.member.MemberServiceImpl">
         <constructor-arg name="memberRepository" ref="memberRepository"/>
     </bean>
-
+<!--    ref에 실제 구현체 "hello.core.member.MemoryMemberRepository" 들어감-->
     <bean id="memberRepository" class="hello.core.member.MemoryMemberRepository"/>
-<!--    memberRepository가 new한 값을 constructor-arg에 넣고 memberService에 주입-->
 
     <bean id="orderService" class="hello.core.order.OrderServiceImpl">
         <constructor-arg name="memberRepository" ref="memberRepository"/>
