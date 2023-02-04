@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository; // = new MemoryMemberRepository(); - 싱글톤 & 생성자 & 수정자 주입
     private final DiscountPolicy discountPolicy; //인터페이스만 의존 = DIP 지킴
-//    @Autowired private DiscountPolicy discountPolicy; //인터페이스만 의존 = DIP 지킴 - 필드 주입
-//    @Autowired private MemberRepository memberRepository; // = new MemoryMemberRepository(); - 필드 주입
+//    @Autowired private DiscountPolicy discountPolicy; //필드 주입
+//    @Autowired private MemberRepository memberRepository; //필드 주입
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); //인터페이스 & 구현체 모두 의존
 
     /**
