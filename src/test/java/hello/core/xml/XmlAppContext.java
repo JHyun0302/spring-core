@@ -12,7 +12,7 @@ public class XmlAppContext {
     @Test
     void xmlAppContext(){
         ApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
-        //ApplicationContext가 부모이므르 ApplicationContext ac 라고 해도 됨
+        //ApplicationContext가 부모임!
         MemberService memberService = ac.getBean("memberService", MemberService.class);
         assertThat(memberService).isInstanceOf(MemberService.class);
     }
