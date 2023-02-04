@@ -3,6 +3,7 @@ package hello.core;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
+import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
@@ -33,12 +34,23 @@ public class AppConfig { //Config: 설정 정보
      * call AppConfig.orderService
      */
 
+    /**
+     * AppConfig: 생성자에 구현체를 주입시킴! -> OCP & DIP 지킴! (추상화에 의존, 구현체에 의존하지 않음!)
+     */
+
 
     @Bean //Spring Container에 등록
     public MemberService memberService(){ //인터페이스: 역할
         System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
-//        return new MemberServiceImpl(new MemoryMemberRepository()); //@Configuataion빼고 돌리면  memberService 호출할 때마다 MemoryMemberRepository 생성함
+//        return new MemberServiceImpl(new MemoryMemberRepository()); //@Configuataion빼고 돌리면 memberService 호출할 때마다 MemoryMemberRepository 생성함
+    }
+
+    @Bean
+    public OrderService orderService(){
+        System.out.println("call AppConfig.orderService");
+        return new OrderServiceImpl(memberRepository(), discountPolicy()); //구현체를 선택!
+//        return null;
     }
 
     /**
@@ -46,18 +58,13 @@ public class AppConfig { //Config: 설정 정보
      * Extract Method: Command + Option + M
      */
     @Bean //(name = "changeName") //스프링 빈에 등록되는 이름 바꾸기
-    public MemoryMemberRepository memberRepository() { //구현체: 구현
+    public MemberRepository memberRepository() {
         System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
+
     @Bean
-    public OrderService orderService(){ //인터페이스: 역할
-        System.out.println("call AppConfig.orderService");
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
-//        return null;
-    }
-    @Bean
-    public DiscountPolicy discountPolicy(){ //구현체: 구현
+    public DiscountPolicy discountPolicy(){
 //        return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
