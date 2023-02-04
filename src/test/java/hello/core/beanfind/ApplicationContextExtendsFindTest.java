@@ -30,12 +30,12 @@ public class ApplicationContextExtendsFindTest {
     @Test
     @DisplayName("부모 타입으로 조회시, 자식이 둘 이상 있으면, 빈 이름을 지정하면 된다")
     void findBeanByParentTypeBeanName(){
-        RateDiscountPolicy rateDiscountPolicy = ac.getBean("rateDiscountPolicy", RateDiscountPolicy.class);
+        DiscountPolicy rateDiscountPolicy = ac.getBean("rateDiscountPolicy", DiscountPolicy.class);
         assertThat(rateDiscountPolicy).isInstanceOf(RateDiscountPolicy.class);
     }
 
     @Test
-    @DisplayName("특정 하위 타입으로 조회") //return new RateDiscountPolicy(); 1개 밖에 없으므로 test 성공
+    @DisplayName("특정 하위 타입으로 조회") //구체 타입에 의존!! (안 좋음)
     void findBeanBySubType(){
         RateDiscountPolicy bean = ac.getBean(RateDiscountPolicy.class);
         assertThat(bean).isInstanceOf(RateDiscountPolicy.class);
@@ -65,7 +65,6 @@ public class ApplicationContextExtendsFindTest {
         public DiscountPolicy rateDiscountPolicy() {
             return new RateDiscountPolicy();
         }
-
         @Bean
         public DiscountPolicy fixDiscountPolicy() {
             return new FixDiscountPolicy();
