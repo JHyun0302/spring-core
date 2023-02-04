@@ -32,7 +32,7 @@ class ApplicationContextBasicFindTest {
     @Test
     @DisplayName("구체 타입으로 조회") //구현에 의존하므로 좋은 코드 아님
     void findBeanByName2(){
-        MemberService memberService = ac.getBean("memberService", MemberServiceImpl.class);
+        MemberServiceImpl memberService = ac.getBean("memberService", MemberServiceImpl.class);
         //인스턴스 타입을 보고 결정하기 때문에 구체 타입으로 작성해도 됨
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class); //memberService가 MemberServiceImpl타입으로 받을 수 있나
     }
@@ -40,7 +40,6 @@ class ApplicationContextBasicFindTest {
     @Test
     @DisplayName("빈 이름으로 조회x")
     void findBeanByNameX(){
-//        ac.getBean(("xxxx", MemberService.class))
 //        MemberService bean = ac.getBean(("xxxx"), MemberService.class);
         assertThrows(NoSuchBeanDefinitionException.class,
                 () ->ac.getBean(("xxxx"), MemberService.class)); //예외가 터지면 테스트 성공
