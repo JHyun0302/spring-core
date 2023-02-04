@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class ConfigurationSingletonTest {
 
     @Test
@@ -26,8 +28,8 @@ public class ConfigurationSingletonTest {
         System.out.println("orderService -> memberRepository2 = " + memberRepository2);
         System.out.println("memberRepository = " + memberRepository);
 
-        Assertions.assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
-        Assertions.assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
+        assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
+        assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
     }
 
     @Test
