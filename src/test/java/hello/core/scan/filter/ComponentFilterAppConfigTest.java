@@ -29,10 +29,9 @@ public class ComponentFilterAppConfigTest {
 
     @Configuration
     @ComponentScan(
-            includeFilters = @Filter(classes = MyIncludeComponent.class), //beanA는 추가
+            includeFilters = @Filter(classes = MyIncludeComponent.class), //beanA는 추가 (type - 기본값이라 생략가능)
             excludeFilters = @Filter(type = FilterType.ANNOTATION, classes = MyExcludeComponent.class)  //beanB는 제외
     )
-    //FilterType.ANNOTATION: annotation과 관련된 필터를 만든다(기본값이라 생략가능)
     static class ComponentFilterAppConfig {
 
     }
