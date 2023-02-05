@@ -14,7 +14,7 @@ import javax.inject.Provider;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class SingletonWithPrototypeTest1 {
+public class  SingletonWithPrototypeTest1 {
 
     @Test
     void prototypeFind() {
@@ -56,8 +56,8 @@ public class SingletonWithPrototypeTest1 {
     static class ClientBean1 {
         //private final PrototypeBean prototypeBean; //생성시점에 주입  //prototypeBean@x01
 
-        @Autowired //필드 주입
-        private Provider<PrototypeBean> prototypeBeanProvider; //ObjectFactory가 부모 인터페이스
+        @Autowired
+        private Provider<PrototypeBean> prototypeBeanProvider;
 //        private ObjectProvider<PrototypeBean> prototypeBeanProvider; //ObjectFactory가 부모 인터페이스
 //        private ObjectFactory<PrototypeBean> prototypeBeanProvider;
         public int logic() {
@@ -70,7 +70,7 @@ public class SingletonWithPrototypeTest1 {
     }
     @Scope("singleton")
     static class ClientBean2 {
-        private final PrototypeBean prototypeBean; //생성시점에 주입
+        private final PrototypeBean prototypeBean;
 
         ClientBean2(PrototypeBean prototypeBean) { //prototypeBean@x02
             this.prototypeBean = prototypeBean;
