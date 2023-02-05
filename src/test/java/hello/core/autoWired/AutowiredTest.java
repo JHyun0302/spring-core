@@ -14,13 +14,16 @@ public class AutowiredTest {
 
     @Test
     void AutowiredOption() {
-        ApplicationContext ac = new AnnotationConfigApplicationContext(TestBean.class);
+        ApplicationContext ac = new AnnotationConfigApplicationContext(TestBean.class); //Spring Bean으로 등록
 
     }
 
     //@Component
     static class TestBean {
-        //호출 안됨: Member 구현체는 스프링빈에 등록이 안되어 있음! (req = true)시 에러
+        /**
+         * 호출 안됨: Member 구현체는 스프링빈에 등록이 안되어 있음! (req = true)시 에러
+         * required = false: 자동 주입할 대상이 없으면 메서드 자체가 호출 안됨
+         */
         @Autowired(required = false)
         public void setNoBean1(Member noBean1) {
             System.out.println("noBean1 = " + noBean1);
