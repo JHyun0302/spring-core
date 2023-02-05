@@ -34,7 +34,7 @@ public class OrderServiceTest {
 
     /*@Test
     void fieldInjectionTest(){ // 결국 필드 주입할려면 setter 만들어야함!!
-        OrderServiceImpl orderService = new OrderServiceImpl(); // 새로 new해서 만들어서 필드 주입 안 먹힘
+        OrderServiceImpl orderService = new OrderServiceImpl(); // 스프링이 아닌 순수하게 돌리게 됨
         OrderService.setMemberRepository(new MemoryMemberRepository());
         OrderService.setDiscountPolicy(new FixDiscountPolicy());
         orderService.createOrder(1L, "itemA", 10000);
