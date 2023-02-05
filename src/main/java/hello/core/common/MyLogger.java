@@ -8,13 +8,14 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.UUID;
 
+/**
+ * 웹 스코프
+ */
 @Component
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS) //프록시를 이용해 myLogger 가짜 생성
 public class MyLogger {
-
     private String uuid;
     private String requestURL;
-
     public void setRequestURL(String requestURL) {
         this.requestURL = requestURL;
     }
