@@ -22,6 +22,8 @@ class BeanLifeCycleTest {
     static class LifeCycleConfig {
         /**
          * 2. initMethod & destroyMethod 방식
+         * 스프링 빈이 스프링 코드에 의존하지 않는다.
+         * 코드를 고칠 수 없는 외부 라이브러리에도 적용 가능
          */
 //        @Bean(initMethod = "init", destroyMethod = "close")
         @Bean
