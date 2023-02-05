@@ -34,7 +34,7 @@ public class NetworkClient  {
 
     /**
      * 1. implements InitializingBean, DisposableBean
-     * 매우 오래된 방식: 수정 불가능한 외부 라이브러리에 적용 못함
+     * 매우 오래된 방식: 수정 불가능한 외부 라이브러리에 적용 못함 & 스프링 전용 인터페이스에 의존하게 됨
      */
 /*    @Override //의존관계 주입이 끝나면 호출하겠다!
     public void afterPropertiesSet() throws Exception {
@@ -51,6 +51,7 @@ public class NetworkClient  {
 
     /**
      * 3. @PostConstruct & @PreDestroy 방법
+     * 외부 라이브러리는 적용 못함
      */
     @PostConstruct
     public void init() {
