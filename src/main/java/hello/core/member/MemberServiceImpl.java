@@ -9,7 +9,7 @@ public class MemberServiceImpl implements MemberService{
     private final MemberRepository memberRepository; //= new MemoryMemberRepository(); // 인터페이스와 구현체 모두 의존 자르기
     //추상화에만 의존 = DIP 지킴
 
-    @Autowired //자동 의존관계 주입: AppConfig없이 인터페이스와 구현체 연결 == ac.getBean(MemberRepository.class)
+    @Autowired //자동 의존관계 주입: AppConfig없이 인터페이스와 구현체 연결 ac.getBean(MemberRepository.class)
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
