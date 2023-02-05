@@ -12,6 +12,3 @@ import java.lang.annotation.*;
 public @interface MainDiscountPolicy {
 }
 
-/**
- * MainDiscountPolicy - annotation사용시 @ 모두 사용
- */
