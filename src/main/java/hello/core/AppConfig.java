@@ -21,14 +21,14 @@ public class AppConfig { //Config: 설정 정보
      * 싱글톤 깨지나? A. 안 깨짐
      */
     /**
-     * 예상
+     * 예상: 순수 자바 코드 (모두 다른 memberRepository)
      * call AppConfig.memberService
      * call AppConfig.memberRepository
      * call AppConfig.memberRepository
      * call AppConfig.orderService
      * call AppConfig.memberRepository
      *
-     * 실제
+     * 실제: @Configuration을 통해 AppConfig - proxy 생성(모두 같은 memberRepository)
      * call AppConfig.memberService
      * call AppConfig.memberRepository
      * call AppConfig.orderService
